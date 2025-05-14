@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumple Lizeth</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      background-color: #ffd966;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #f1c232;
+    }
+    #second-btn, #mensaje-final, #respuesta-si {
+      display: none;
+    }
+    img {
+      width: 150px;
+      margin-top: 15px;
+    }
+    #no-btn {
+      position: relative;
+    }
+    @keyframes mover {
+      0% {transform: translate(0, 0);}
+      25% {transform: translate(50px, 0);}
+      50% {transform: translate(50px, 50px);}
+      75% {transform: translate(0, 50px);}
+      100% {transform: translate(0, 0);}
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      img {
+        width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Haz clic en este botón 🎁</h2>
+    <button id="primer-btn">Pulsa aquí</button>
+    <p id="incorrecto"></p>
+    <button id="second-btn">¿Seguro que este sí?</button>
+    <div id="mensaje-final">
+      <h3>¡Feliz cumpleaños Lizeth! 🎉</h3>
+      <p>Que disfrutes este dia en tus 17 años 🤍<br>
+      Y pensar que te conoci a los 12, cada dia mas adulta 🫣<br>
+      Que cumplas muchoos años mas, tqm lizeth</p>
+      <img src="meme1.png" alt="Emoji divertido">
+      <p id="broma">Cada año mas vieja 😆</p>
+      <button id="si-btn">SI</button>
+      <button id="no-btn">NO</button>
+      <p id="respuesta-si"></p>
+    </div>
+  </div>
+
+  <script>
+    const primerBtn = document.getElementById('primer-btn');
+    const incorrectoText = document.getElementById('incorrecto');
+    const secondBtn = document.getElementById('second-btn');
+    const mensajeFinal = document.getElementById('mensaje-final');
+    const siBtn = document.getElementById('si-btn');
+    const noBtn = document.getElementById('no-btn');
+    const respuestaSi = document.getElementById('respuesta-si');
+    const broma = document.getElementById('broma');
+
+    primerBtn.addEventListener('click', () => {
+      incorrectoText.textContent = 'Este boton no venao 🦌';
+      secondBtn.style.display = 'inline-block';
+    });
+
+    secondBtn.addEventListener('click', () => {
+      mensajeFinal.style.display = 'block';
+      broma.style.display = 'block';
+    });
+
+    siBtn.addEventListener('click', () => {
+      respuestaSi.style.display = 'block';
+      respuestaSi.innerHTML = 'Bienvenid@ al mundo adulto, ahora ya puedes hacer todo legalmente... lo mismo que hacías a escondidas. <br> <img src="meme2.png" alt="Emoji con lentes" style="width:150px; margin-top:15px;">';
+    });
+
+    noBtn.addEventListener('mouseenter', () => {
+      const randomX = Math.floor(Math.random() * 200) - 100;
+      const randomY = Math.floor(Math.random() * 200) - 100;
+      noBtn.style.position = 'relative';
+      noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    });
+  </script>
+</body>
+</html>
